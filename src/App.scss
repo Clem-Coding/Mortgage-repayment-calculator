@@ -1,0 +1,40 @@
+@import "assets/styles/variables";
+
+/**************************************************************/
+/*                        FONTS                               */
+/**************************************************************/
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap");
+
+/**************************************************************/
+/*                       GENERAL                             */
+/**************************************************************/
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: $slate-100;
+}
+
+h1 {
+  color: $slate-900;
+  font-size: $font-size-h1;
+}
+
+/**************************************************************/
+/*                       LAYOUT                               */
+/**************************************************************/
+
+/**************************************************************/
+/*                      MEDIA QUERIES                         */
+/**************************************************************/
+
+@media (min-width: 1440px) {
+  .body {
+  }
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    background-color: $white;
+    border-radius: 5px;
+  }
+}
