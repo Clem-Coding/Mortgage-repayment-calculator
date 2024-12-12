@@ -12,17 +12,58 @@
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
   background-color: $slate-100;
+  margin: 0;
+  font-size: $f16;
 }
 
 h1 {
   color: $slate-900;
-  font-size: $font-size-h1;
+  font-size: $f24;
+}
+
+p {
+  color: $slate-300;
 }
 
 /**************************************************************/
 /*                       LAYOUT                               */
 /**************************************************************/
 
+.results-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3em;
+  background-color: $slate-800;
+  &_title {
+    color: $white;
+    text-align: center;
+  }
+
+  &_text {
+    color: $slate-300;
+    text-align: center;
+  }
+}
+
+.results-wrapper {
+  background-color: $slate-900;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  border-top: 4px solid $lime;
+}
+
+.highlight-yellow {
+  color: $lime;
+  font-weight: 700;
+  font-size: $f24;
+}
+
+.highlight-white {
+  color: $white;
+  font-weight: 700;
+  font-size: $f20;
+}
 /**************************************************************/
 /*                      MEDIA QUERIES                         */
 /**************************************************************/
