@@ -18,9 +18,18 @@ export default function Home() {
   const [monthlyRepayment, setMonthlyRepayment] = useState(0);
   const [totalRepayment, setTotalRepayment] = useState(0);
 
+  const [errors, setErrors] = useState({
+    mortgageAmount: false,
+    mortgageTerm: false,
+    interestRate: false,
+  });
+
+  console.log(errors, "les erreurs");
+
   useEffect(() => {
     console.log("Monthly Repayment: ", monthlyRepayment);
     console.log("Total Repayment: ", totalRepayment);
+    console.log("Les erreurs: ", totalRepayment);
   }, [monthlyRepayment, totalRepayment]);
 
   const handleChange = (event) => {
@@ -32,9 +41,17 @@ export default function Home() {
     event.preventDefault();
     setSubmitted(true);
 
+    const newErrors = {
+      mortgageAmount:
+        !formData.mortgageAmount || formData.mortgageAmount === "0",
+      mortgageTerm: !formData.mortgageTerm || formData.mortgageTerm === "0",
+      interestRate: !formData.interestRate || formData.interestRate === "0",
+    };
+
+    setErrors(newErrors);
+
     const { mortgageAmount, mortgageTerm, interestRate, repaymentType } =
       formData;
-    console.log("les datas", formData);
 
     let calculatedMonthlyRepayment = 0;
     let calculatedTotalRepayment = 0;
@@ -69,11 +86,13 @@ export default function Home() {
         handleChange={handleChange}
         formData={formData}
         isSubmitted={isSubmitted}
+        errors={errors}
       />
       <Results
         isSubmitted={isSubmitted}
         monthlyRepayment={monthlyRepayment}
         totalRepayment={totalRepayment}
+        errors={errors}
       />
     </div>
   );

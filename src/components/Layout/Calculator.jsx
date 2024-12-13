@@ -1,6 +1,6 @@
 import "./calculator.scss";
 
-export default function Form({ onSubmit, handleChange, formData }) {
+export default function Form({ onSubmit, handleChange, formData, errors }) {
   return (
     <>
       <section className="calculator-section">
@@ -21,9 +21,11 @@ export default function Form({ onSubmit, handleChange, formData }) {
                   name="mortgageAmount"
                   value={formData.mortgageAmount}
                   onChange={handleChange}
-                  required
                 />
               </div>
+              {errors.mortgageAmount && (
+                <span className="error-message">This field is required</span>
+              )}
             </label>
 
             <label htmlFor="mortgageTerm">
@@ -36,10 +38,12 @@ export default function Form({ onSubmit, handleChange, formData }) {
                   name="mortgageTerm"
                   value={formData.mortgageTerm}
                   onChange={handleChange}
-                  required
                 />
                 <span className="input-suffix input-suffix_right">years</span>
               </div>
+              {errors.mortgageTerm && (
+                <span className="error-message">This field is required</span>
+              )}
             </label>
 
             <label htmlFor="interestRate">
@@ -52,10 +56,12 @@ export default function Form({ onSubmit, handleChange, formData }) {
                   name="interestRate"
                   value={formData.interestRate}
                   onChange={handleChange}
-                  required
                 />
                 <span className="input-suffix input-suffix_right">%</span>
               </div>
+              {errors.interestRate && (
+                <span className="error-message">This field is required</span>
+              )}
             </label>
           </fieldset>
 

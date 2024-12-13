@@ -2,15 +2,19 @@ export default function Results({
   isSubmitted,
   monthlyRepayment,
   totalRepayment,
+  errors,
 }) {
   return (
     <section className="results-section">
-      {!isSubmitted && (
+      {(!isSubmitted ||
+        (isSubmitted && Object.values(errors).includes(true))) && (
         <img src="./images/illustration-empty.svg" alt="Illustration" />
       )}
 
       <h1 className="results-section_title">
-        {isSubmitted ? "Your Results" : "Results shown here"}
+        {isSubmitted && !Object.values(errors).includes(true)
+          ? "Your Results"
+          : "Results shown here"}
       </h1>
 
       <p className="results-section_text">
@@ -19,7 +23,7 @@ export default function Results({
           : 'Complete the form and click "calculate repayments" to see what your monthly repayments would be'}
       </p>
 
-      {isSubmitted && (
+      {isSubmitted && !Object.values(errors).includes(true) && (
         <div className="results-wrapper">
           <p> Your monthly repayments </p>
           <p className="highlight-yellow"> £{monthlyRepayment}</p>
