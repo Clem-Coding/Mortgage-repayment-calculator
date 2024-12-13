@@ -1,34 +1,75 @@
-@import "assets/styles/variables";
+@import "./variables";
+@import "normalize.css";
 
 /**************************************************************/
 /*                        FONTS                               */
 /**************************************************************/
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap");
 
 /**************************************************************/
 /*                       GENERAL                             */
 /**************************************************************/
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
   background-color: $slate-100;
   margin: 0;
   font-size: $f16;
+  color: $slate-700;
+  font-weight: 700;
 }
 
 h1 {
   color: $slate-900;
   font-size: $f24;
+  font-weight: 700;
 }
 
 p {
   color: $slate-300;
 }
 
+form {
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  all: unset;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+input {
+  cursor: pointer;
+}
+
+input,
+textarea,
+button,
+select {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: none;
+}
 /**************************************************************/
 /*                       LAYOUT                               */
 /**************************************************************/
-
+.calculator-section {
+  background-color: $white;
+  padding: 1.5em;
+  // height: 100%;
+  &_title {
+    color: $slate-900;
+  }
+}
 .results-section {
   display: flex;
   flex-direction: column;
@@ -48,7 +89,7 @@ p {
 
 .results-wrapper {
   background-color: $slate-900;
-  padding: 0.5em 1em;
+  padding: 1em;
   border-radius: 5px;
   border-top: 4px solid $lime;
 }
@@ -61,7 +102,8 @@ p {
 
 .highlight-white {
   color: $white;
-  font-weight: 700;
+  font-weight: 900;
+
   font-size: $f20;
 }
 /**************************************************************/

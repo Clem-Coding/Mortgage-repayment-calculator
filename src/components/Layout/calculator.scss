@@ -1,0 +1,95 @@
+@import "../../variables";
+
+.calculator-section_title {
+  margin-bottom: 0.3em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  &_input {
+    width: 100%;
+    padding: 1em;
+  }
+
+  &_button {
+    background-color: $lime;
+    border-radius: 20em;
+    padding: 1em;
+    font-weight: 700;
+    color: $slate-800;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+
+    &:hover {
+      opacity: 80%;
+    }
+  }
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 2px solid $slate-800;
+  border-radius: 5px;
+
+  &:hover {
+    border: 2px solid $lime;
+  }
+}
+
+.input-suffix {
+  background-color: $slate-100;
+  color: $slate-800;
+  pointer-events: none;
+  line-height: 1.5em;
+  padding: 1em 1.5em;
+
+  &_left {
+    left: 0.5em;
+    border-radius: 5px 0 0 5px;
+  }
+
+  &_right {
+    right: 0.5em;
+    border-radius: 0 5px 5px 0;
+  }
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  border: none;
+  padding: 0;
+}
+
+fieldset:nth-of-type(2) {
+  gap: 0.7em;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+.form_radio-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+  border: 1px solid $slate-800;
+  border-radius: 5px;
+  padding: 1em;
+  font-weight: 700;
+  color: $slate-800;
+}
+
+.form_radio-label:checked {
+  background-color: red;
+}
