@@ -29,7 +29,7 @@
     gap: 1em;
 
     &:hover {
-      opacity: 80%;
+      background-color: rgba($lime, 0.8);
     }
   }
 }
@@ -39,10 +39,6 @@
   align-items: center;
   border: 2px solid $slate-800;
   border-radius: 5px;
-
-  &:hover {
-    border: 2px solid $lime;
-  }
 }
 
 .input-suffix {
@@ -92,14 +88,13 @@ label {
   padding: 1em;
   font-weight: 700;
   color: $slate-800;
-}
 
-.form_radio-label:checked {
-  background-color: $red;
-}
+  &:hover {
+    border: 2px solid $lime;
+    cursor: pointer;
+  }
 
-.input-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
+  &:has(input:checked) {
+    background-color: rgba($lime, 0.6);
+  }
 }

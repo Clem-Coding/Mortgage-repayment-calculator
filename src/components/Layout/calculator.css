@@ -25,7 +25,7 @@
   gap: 1em;
 }
 .form_button:hover {
-  opacity: 80%;
+  background-color: rgba(215.424, 218.28, 46.92, 0.8);
 }
 
 .input-wrapper {
@@ -33,9 +33,6 @@
   align-items: center;
   border: 2px solid hsl(200, 54%, 15%);
   border-radius: 5px;
-}
-.input-wrapper:hover {
-  border: 2px solid hsl(61, 70%, 52%);
 }
 
 .input-suffix {
@@ -84,13 +81,10 @@ label {
   font-weight: 700;
   color: hsl(200, 54%, 15%);
 }
-
-.form_radio-label:checked {
-  background-color: hsl(4, 69%, 50%);
+.form_radio-label:hover {
+  border: 2px solid hsl(61, 70%, 52%);
+  cursor: pointer;
 }
-
-.input-container {
-  display: flex;
-  flex-direction: column;
-  gap: 2em;
+.form_radio-label:has(input:checked) {
+  background-color: rgba(215.424, 218.28, 46.92, 0.6);
 }

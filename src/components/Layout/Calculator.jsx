@@ -1,12 +1,6 @@
 import "./calculator.scss";
 
-export default function Form({
-  onSubmit,
-  handleChange,
-  formData,
-  errors,
-  handleClear,
-}) {
+export default function Form({ onSubmit, handleChange, formData, errors, handleClear }) {
   return (
     <>
       <section className="calculator-section">
@@ -31,9 +25,7 @@ export default function Form({
                   onChange={handleChange}
                 />
               </div>
-              {errors.mortgageAmount && (
-                <span className="error-message">This field is required</span>
-              )}
+              {errors.mortgageAmount && <span className="error-message">This field is required</span>}
             </label>
 
             <div className="input-container">
@@ -52,9 +44,7 @@ export default function Form({
                   />
                   <span className="input-suffix input-suffix_right">years</span>
                 </div>
-                {errors.mortgageTerm && (
-                  <span className="error-message">This field is required</span>
-                )}
+                {errors.mortgageTerm && <span className="error-message">This field is required</span>}
               </label>
 
               <label htmlFor="interestRate">
@@ -70,9 +60,7 @@ export default function Form({
                   />
                   <span className="input-suffix input-suffix_right">%</span>
                 </div>
-                {errors.interestRate && (
-                  <span className="error-message">This field is required</span>
-                )}
+                {errors.interestRate && <span className="error-message">This field is required</span>}
               </label>
             </div>
           </fieldset>
@@ -88,7 +76,7 @@ export default function Form({
                 checked={formData.repaymentType === "repayment"}
                 onChange={handleChange}
               />
-              Repayment
+              <span>Repayment</span>
             </label>
             <label className="form_radio-label" htmlFor="interestOnly">
               <input
@@ -101,16 +89,11 @@ export default function Form({
               />
               Interest Only
             </label>
-            {errors.repaymentType && (
-              <span className="error-message">This field is required</span>
-            )}
+            {errors.repaymentType && <span className="error-message">This field is required</span>}
           </fieldset>
 
           <button className="form_button" aria-label="Submit" type="submit">
-            <img
-              src="./images/icon-calculator.svg"
-              alt="Icone de calculatrice"
-            />
+            <img src="./images/icon-calculator.svg" alt="Icone de calculatrice" />
             Calculate Repayments
           </button>
         </form>

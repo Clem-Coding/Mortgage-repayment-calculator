@@ -2,10 +2,7 @@ import Calculator from "../components/Layout/Calculator";
 import Results from "../components/Layout/Results";
 import { useState, useEffect } from "react";
 import { useRef } from "react";
-import {
-  calculateMortgagePayment,
-  calculateInterestOnlyPayment,
-} from "../mortgageUtils";
+import { calculateMortgagePayment, calculateInterestOnlyPayment } from "../mortgageUtils";
 
 export default function Home() {
   const [isSubmitted, setSubmitted] = useState(false);
@@ -27,13 +24,7 @@ export default function Home() {
     repaymentType: false,
   });
 
-  console.log(errors, "les erreurs");
-
-  useEffect(() => {
-    console.log("Monthly Repayment: ", monthlyRepayment);
-    console.log("Total Repayment: ", totalRepayment);
-    console.log("Les erreurs: ", totalRepayment);
-  }, [monthlyRepayment, totalRepayment]);
+  useEffect(() => {}, [monthlyRepayment, totalRepayment]);
 
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -48,8 +39,7 @@ export default function Home() {
     }
 
     const newErrors = {
-      mortgageAmount:
-        !formData.mortgageAmount || formData.mortgageAmount === "0",
+      mortgageAmount: !formData.mortgageAmount || formData.mortgageAmount === "0",
       mortgageTerm: !formData.mortgageTerm || formData.mortgageTerm === "0",
       interestRate: !formData.interestRate || formData.interestRate === "0",
       repaymentType: !formData.repaymentType,
@@ -57,27 +47,18 @@ export default function Home() {
 
     setErrors(newErrors);
 
-    const { mortgageAmount, mortgageTerm, interestRate, repaymentType } =
-      formData;
+    const { mortgageAmount, mortgageTerm, interestRate, repaymentType } = formData;
 
     let calculatedMonthlyRepayment = 0;
     let calculatedTotalRepayment = 0;
 
     if (repaymentType === "repayment") {
-      const result = calculateMortgagePayment(
-        mortgageAmount,
-        interestRate,
-        mortgageTerm
-      );
+      const result = calculateMortgagePayment(mortgageAmount, interestRate, mortgageTerm);
 
       calculatedMonthlyRepayment = result.monthlyRepayment;
       calculatedTotalRepayment = result.totalRepayment;
     } else if (repaymentType === "interest-only") {
-      const result = calculateInterestOnlyPayment(
-        mortgageAmount,
-        interestRate,
-        mortgageTerm
-      );
+      const result = calculateInterestOnlyPayment(mortgageAmount, interestRate, mortgageTerm);
       calculatedMonthlyRepayment = result.monthlyRepayment;
       calculatedTotalRepayment = result.totalRepayment;
     }
