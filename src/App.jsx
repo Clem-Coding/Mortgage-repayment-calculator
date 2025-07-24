@@ -1,7 +1,13 @@
-import "./App.scss";
+import "./assets/styles/app.scss";
+
+import Home from "./pages/Home";
 
 function App() {
-  return <></>;
+  return (
+    <>
+      <Home />
+    </>
+  );
 }
 
 export default App;

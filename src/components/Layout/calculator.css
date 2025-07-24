@@ -1,0 +1,90 @@
+.calaculator-section_title-wrapper > button {
+  text-decoration: underline;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  margin-top: 2em;
+}
+.form_input {
+  width: 100%;
+  padding: 1em;
+  font-weight: 700;
+}
+.form_button {
+  background-color: hsl(61, 70%, 52%);
+  border-radius: 20em;
+  padding: 1em;
+  font-weight: 700;
+  color: hsl(200, 54%, 15%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.form_button:hover {
+  background-color: rgba(215.424, 218.28, 46.92, 0.8);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 2px solid hsl(200, 54%, 15%);
+  border-radius: 5px;
+}
+
+.input-suffix {
+  background-color: hsl(202, 86%, 94%);
+  color: hsl(200, 54%, 15%);
+  pointer-events: none;
+  line-height: 1.5em;
+  padding: 1em 1.5em;
+}
+.input-suffix_left {
+  left: 0.5em;
+  border-radius: 5px 0 0 5px;
+}
+.input-suffix_right {
+  right: 0.5em;
+  border-radius: 0 5px 5px 0;
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  border: none;
+  padding: 0;
+}
+
+fieldset:nth-of-type(2) {
+  gap: 0.7em;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7em;
+}
+
+.form_radio-label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+  border: 1px solid hsl(200, 54%, 15%);
+  border-radius: 5px;
+  padding: 1em;
+  font-weight: 700;
+  color: hsl(200, 54%, 15%);
+}
+.form_radio-label:hover {
+  border: 2px solid hsl(61, 70%, 52%);
+  cursor: pointer;
+}
+.form_radio-label:has(input:checked) {
+  background-color: rgba(215.424, 218.28, 46.92, 0.6);
+}
