@@ -1,5 +1,4 @@
-import "./_variables.scss";
-import "./app.scss";
+import "./assets/styles/app.scss";
 
 import Home from "./pages/Home";
 

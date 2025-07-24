@@ -1,4 +1,4 @@
-// Fonction pour calculer le paiement mensuel du prêt amortissable
+// Calculate the monthly payment of an amortizing loan
 export function calculateMortgagePayment(principal, annualRate, years) {
   const monthlyRate = annualRate / 12 / 100;
   const numberOfPayments = years * 12;
@@ -15,7 +15,7 @@ export function calculateMortgagePayment(principal, annualRate, years) {
   };
 }
 
-// Fonction pour calculer le paiement mensuel du prêt à intérêts uniquement
+// Calculate the monthly payment of an interest-only loan
 export function calculateInterestOnlyPayment(principal, annualRate, years) {
   const monthlyRate = annualRate / 12 / 100;
 

@@ -1,11 +1,19 @@
 import "./calculator.scss";
 
-export default function Form({ onSubmit, handleChange, formData, errors }) {
+export default function Form({
+  onSubmit,
+  handleChange,
+  formData,
+  errors,
+  handleClear,
+}) {
   return (
     <>
       <section className="calculator-section">
-        <h1 className="calculator-section_title">Mortgage Calculator</h1>
-        <button>Clear all</button>
+        <div className="calaculator-section_title-wrapper">
+          <h1 className="calculator-section_title">Mortgage Calculator</h1>
+          <button onClick={handleClear}>Clear all</button>
+        </div>
 
         <form className="form" onSubmit={onSubmit}>
           <fieldset>
@@ -28,41 +36,45 @@ export default function Form({ onSubmit, handleChange, formData, errors }) {
               )}
             </label>
 
-            <label htmlFor="mortgageTerm">
-              Mortgage Term
-              <div className="input-wrapper">
-                <input
-                  className="form_input"
-                  type="text"
-                  id="mortgageTerm"
-                  name="mortgageTerm"
-                  value={formData.mortgageTerm}
-                  onChange={handleChange}
-                />
-                <span className="input-suffix input-suffix_right">years</span>
-              </div>
-              {errors.mortgageTerm && (
-                <span className="error-message">This field is required</span>
-              )}
-            </label>
+            <div className="input-container">
+              <label htmlFor="mortgageTerm">
+                Mortgage Term
+                <div className="input-wrapper">
+                  <input
+                    className="form_input"
+                    type="number"
+                    id="mortgageTerm"
+                    name="mortgageTerm"
+                    value={formData.mortgageTerm}
+                    onChange={handleChange}
+                    min="1"
+                    step="1"
+                  />
+                  <span className="input-suffix input-suffix_right">years</span>
+                </div>
+                {errors.mortgageTerm && (
+                  <span className="error-message">This field is required</span>
+                )}
+              </label>
 
-            <label htmlFor="interestRate">
-              Interest Rate:
-              <div className="input-wrapper">
-                <input
-                  className="form_input"
-                  type="text"
-                  id="interestRate"
-                  name="interestRate"
-                  value={formData.interestRate}
-                  onChange={handleChange}
-                />
-                <span className="input-suffix input-suffix_right">%</span>
-              </div>
-              {errors.interestRate && (
-                <span className="error-message">This field is required</span>
-              )}
-            </label>
+              <label htmlFor="interestRate">
+                Interest Rate:
+                <div className="input-wrapper">
+                  <input
+                    className="form_input"
+                    type="text"
+                    id="interestRate"
+                    name="interestRate"
+                    value={formData.interestRate}
+                    onChange={handleChange}
+                  />
+                  <span className="input-suffix input-suffix_right">%</span>
+                </div>
+                {errors.interestRate && (
+                  <span className="error-message">This field is required</span>
+                )}
+              </label>
+            </div>
           </fieldset>
 
           <fieldset>
@@ -89,9 +101,12 @@ export default function Form({ onSubmit, handleChange, formData, errors }) {
               />
               Interest Only
             </label>
+            {errors.repaymentType && (
+              <span className="error-message">This field is required</span>
+            )}
           </fieldset>
 
-          <button className="form_button" type="submit">
+          <button className="form_button" aria-label="Submit" type="submit">
             <img
               src="./images/icon-calculator.svg"
               alt="Icone de calculatrice"

@@ -1,5 +1,5 @@
-@import "./variables";
-@import "normalize.css";
+// @import "./variables";
+@use "variables" as *;
 
 /**************************************************************/
 /*                        FONTS                               */
@@ -20,7 +20,7 @@ body {
   margin: 0;
   font-size: $f16;
   color: $slate-700;
-  font-weight: 700;
+  font-weight: 500;
 }
 
 h1 {
@@ -64,40 +64,59 @@ select {
 /**************************************************************/
 .calculator-section {
   background-color: $white;
-  padding: 1.5em;
-  // height: 100%;
+  padding: 1.7em;
+
   &_title {
     color: $slate-900;
+    margin-bottom: 0.3em;
   }
 }
 .results-section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 3em;
+  gap: 1em;
+
+  padding: 1.7em;
   background-color: $slate-800;
   &_title {
     color: $white;
-    text-align: center;
+    text-align: left;
   }
 
   &_text {
     color: $slate-300;
-    text-align: center;
+    text-align: left;
+    margin-top: 0;
   }
 }
 
 .results-wrapper {
   background-color: $slate-900;
   padding: 1em;
-  border-radius: 5px;
+  border-radius: 10px;
   border-top: 4px solid $lime;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
+
+  & > p {
+    margin: 0;
+  }
+
+  & > p:nth-of-type(2) {
+    padding-bottom: 0.5rem;
+  }
+
+  & > p:nth-of-type(3) {
+    padding-top: 1.5em;
+    border-top: 1px solid $slate-500;
+  }
 }
 
 .highlight-yellow {
   color: $lime;
   font-weight: 700;
-  font-size: $f24;
+  font-size: $f40;
 }
 
 .highlight-white {
@@ -108,20 +127,65 @@ select {
 }
 
 .error-message {
-  color: red;
+  color: $red;
 }
 /**************************************************************/
 /*                      MEDIA QUERIES                         */
 /**************************************************************/
 
 @media (min-width: 1440px) {
-  .body {
-  }
   .container {
-    max-width: 1200px;
-    margin: auto;
     display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 60%;
+    max-width: 1200px;
+    height: auto;
+
+    background: $white;
+    border-radius: 20px;
+  }
+
+  .calaculator-section_title-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .calculator-section_title,
+  .results-section_title {
+    margin: 0;
+  }
+
+  section {
+    flex: 1;
+  }
+
+  .calculator-section {
+    border-radius: 20px;
     background-color: $white;
-    border-radius: 5px;
+    padding: 2em;
+  }
+
+  .results-section {
+    border-radius: 0 20px 20px 60px;
+    padding: 2em;
+    align-items: center;
+    justify-content: center;
+
+    & > img {
+      width: 15em;
+    }
+
+    &_text {
+      text-align: center;
+    }
+  }
+
+  .input-container {
+    display: flex;
+    gap: 1.5em;
   }
 }

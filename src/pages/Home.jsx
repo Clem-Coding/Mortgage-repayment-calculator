@@ -1,6 +1,7 @@
 import Calculator from "../components/Layout/Calculator";
 import Results from "../components/Layout/Results";
 import { useState, useEffect } from "react";
+import { useRef } from "react";
 import {
   calculateMortgagePayment,
   calculateInterestOnlyPayment,
@@ -8,6 +9,7 @@ import {
 
 export default function Home() {
   const [isSubmitted, setSubmitted] = useState(false);
+  const resultsRef = useRef(null);
   const [formData, setFormData] = useState({
     mortgageAmount: 130000,
     mortgageTerm: 25,
@@ -22,6 +24,7 @@ export default function Home() {
     mortgageAmount: false,
     mortgageTerm: false,
     interestRate: false,
+    repaymentType: false,
   });
 
   console.log(errors, "les erreurs");
@@ -40,12 +43,16 @@ export default function Home() {
   const handleSubmit = (event) => {
     event.preventDefault();
     setSubmitted(true);
+    if (resultsRef.current) {
+      resultsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
 
     const newErrors = {
       mortgageAmount:
         !formData.mortgageAmount || formData.mortgageAmount === "0",
       mortgageTerm: !formData.mortgageTerm || formData.mortgageTerm === "0",
       interestRate: !formData.interestRate || formData.interestRate === "0",
+      repaymentType: !formData.repaymentType,
     };
 
     setErrors(newErrors);
@@ -79,6 +86,14 @@ export default function Home() {
     setTotalRepayment(calculatedTotalRepayment);
   };
 
+  const handleClear = () => {
+    setFormData({
+      mortgageAmount: "",
+      mortgageTerm: "",
+      interestRate: "",
+    });
+  };
+
   return (
     <div className="container">
       <Calculator
@@ -87,8 +102,10 @@ export default function Home() {
         formData={formData}
         isSubmitted={isSubmitted}
         errors={errors}
+        handleClear={handleClear}
       />
       <Results
+        ref={resultsRef}
         isSubmitted={isSubmitted}
         monthlyRepayment={monthlyRepayment}
         totalRepayment={totalRepayment}
